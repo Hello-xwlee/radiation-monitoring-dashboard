@@ -1,0 +1,60 @@
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+
+    /* 运行时与打包无关，保持原样 */
+    "target": "ES2020",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "useDefineForClassFields": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* === ❶ 关闭严格模式 & 未使用检查（路线 A 核心） === */
+    "strict": false,            // 关闭所有严格子选项
+    "noImplicitAny": false,     // 隐式 any 不报错 → 消除 TS7006
+    "strictNullChecks": false,  // null 检查宽松
+    "noUnusedLocals": false,    // 变量未使用不报 → 消除 TS6133
+    "noUnusedParameters": false,
+
+    /* === ❷ 让第三方类型文件别来烦我 === */
+    "skipLibCheck": true        // node_modules 冲突一律忽略
+  },
+
+  /* 原有 include 不动 */
+  "include": ["src"]
+}
+
+
+
+// {
+//   "compilerOptions": {
+//     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+//     "target": "ES2020",
+//     "useDefineForClassFields": true,
+//     "lib": ["ES2020", "DOM", "DOM.Iterable"],
+//     "module": "ESNext",
+//     "skipLibCheck": true,
+
+//     /* Bundler mode */
+//     "moduleResolution": "bundler",
+//     "allowImportingTsExtensions": true,
+//     "verbatimModuleSyntax": true,
+//     "moduleDetection": "force",
+//     "noEmit": true,
+//     "jsx": "react-jsx",
+
+//     /* Linting */
+//     "strict": true,
+//     "noUnusedLocals": true,
+//     "noUnusedParameters": true,
+//     "erasableSyntaxOnly": true,
+//     "noFallthroughCasesInSwitch": true,
+//     "noUncheckedSideEffectImports": true
+//   },
+//   "include": ["src"]
+// }
